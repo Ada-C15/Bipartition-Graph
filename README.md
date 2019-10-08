@@ -1,6 +1,6 @@
 # Partitioning a Graph
 
-In this exercise you will take in an adjacency list and determine if you can break the map into two sections where no two elements from the same section are adjacent.  This is often called graph coloring as it can be extended to breaking the graph into `k` groups, each labeled with a color.
+In this exercise you will take in an adjacency list and determine if you can break the map into two sections where no two elements from the same section are adjacent.  This is a variation on the [graph coloring](https://en.wikipedia.org/wiki/Graph_coloring) problem as it can be extended to breaking the graph into `k` groups, each labeled with a color.
 
 ## Learning Goals
 
@@ -33,7 +33,6 @@ Output: true
 
 Explanation: group1 [0, 1, 4], group2 [2, 3]
 
-
 ### Example 2
 
 ```
@@ -44,6 +43,8 @@ Input: dislikes = [ [],
                   ]
 Output: false
 ```
+
+Explanation: All the nodes 1-3 are interconnected and so there is no way to split them up.
 
 ### Example 3
 

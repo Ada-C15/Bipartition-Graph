@@ -1,6 +1,6 @@
 # Partitioning a Graph
 
-In this exercise you will take in an adjacency list and determine if you can break the map into two sections where no two elements from the same section are adjacent.  This is a variation on the [graph coloring](https://en.wikipedia.org/wiki/Graph_coloring) problem as it can be extended to breaking the graph into `k` groups, each labeled with a color.
+In this exercise you will take in an adjacency list and determine if you can divide dogs into two groups where no two dogs that are known for fighting each other are in the same group.  This is a variation on the [graph coloring](https://en.wikipedia.org/wiki/Graph_coloring) problem as it can be extended to breaking the graph into `k` groups, each labeled with a color.
 
 ## Learning Goals
 
@@ -11,13 +11,13 @@ In this exercise you should be able to:
 
 ## Description
 
-Given a set of N puppies (numbered 1, 2, ..., N), we would like to split them into two groups of any size to use two play areas.
+Given a set of N puppies (numbered 0, 1, 2, ..., N - 1), we would like to split them into two groups of any size to use two play areas.
 
 Some dogs have a history of fighting with specific other dogs and shouldn't be put into the same play area.
 
-Formally, if dislikes[i] = [a, b], it means it is not allowed to put the people numbered a and b into the same group.
+Formally, if dislikes[i] = [a, b], it means dog i is not allowed to put in the same group as dog a or dog b.
 
-Return true if and only if it is possible to split everyone into two groups in this way.
+Return true if and only if it is possible to split the dogs into two groups where no fighting will occur.
 
 ### Example 1
 

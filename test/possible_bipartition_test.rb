@@ -89,4 +89,24 @@ describe "possible_bipartition" do
   it "will work for an empty graph" do
     expect(possible_bipartition([])).must_equal true
   end
+  
+    it "will return false for a graph which cannot be bipartitioned" do
+    # Arrange
+    dislikes = [ [3, 6],
+      [2, 5],
+      [1, 3],
+      [0, 2, 4],
+      [3, 5],
+      [1, 4],
+      [0],
+      [8],
+      [7]
+    ]
+
+    # Act
+    answer = possible_bipartition(dislikes)
+
+    # Assert
+    expect(answer).must_equal false
+  end
 end

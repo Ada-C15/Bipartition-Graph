@@ -1,4 +1,4 @@
-from lib.possible_bipartition import possible_bipartition
+from graphs.possible_bipartition import possible_bipartition
 
 
 def test_example_1():

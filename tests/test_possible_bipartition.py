@@ -1,7 +1,7 @@
-require_relative "test_helper"
+from lib.possible_bipartition import possible_bipartition
 
-describe "possible_bipartition" do
-  it "will work for example 1" do
+
+def test_example_1():
     # Arrange
     dislikes = [ [],
       [2, 3],
@@ -14,10 +14,9 @@ describe "possible_bipartition" do
     answer = possible_bipartition(dislikes)
 
     # Assert
-    expect(answer).must_equal true
-  end
+    assert answer
 
-  it "will work for example 2" do
+def test_example_2():
     # Arrange
     dislikes =  [ [],
       [2, 3],
@@ -29,10 +28,9 @@ describe "possible_bipartition" do
     answer = possible_bipartition(dislikes)
 
     # Assert
-    expect(answer).must_equal false
-  end
+    assert not answer
 
-  it "will work for example 3" do
+def test_example_r():
     # Arrange
     dislikes = [ [],
       [2, 5],
@@ -46,10 +44,9 @@ describe "possible_bipartition" do
     answer = possible_bipartition(dislikes)
 
     # Assert
-    expect(answer).must_equal false
-  end
+    assert not answer
 
-  it "will return true for a graph which can be bipartitioned" do
+def test_will_return_true_for_a_graph_which_can_be_bipartitioned():
     # Arrange
     dislikes = [ [3, 6],
       [2, 5],
@@ -64,11 +61,9 @@ describe "possible_bipartition" do
     answer = possible_bipartition(dislikes)
 
     # Assert
-    expect(answer).must_equal true
-  end
+    assert answer
 
-
-  it "will return false for a graph which cannot be bipartitioned" do
+def test_will_return_false_for_graph_which_cannot_be_bipartitioned():
     # Arrange
     dislikes = [ [3, 6],
       [2, 5],
@@ -83,14 +78,13 @@ describe "possible_bipartition" do
     answer = possible_bipartition(dislikes)
 
     # Assert
-    expect(answer).must_equal false
-  end
+    assert not answer
 
-  it "will work for an empty graph" do
-    expect(possible_bipartition([])).must_equal true
-  end
+
+def test_will_return_true_for_empty_graph():
+    assert possible_bipartition([])
   
-    it "will return false for a graph which cannot be bipartitioned" do
+def test_will_return_false_for_another_graph_which_cannot_be_bipartitioned():
     # Arrange
     dislikes = [ [3, 6],
       [2, 5],
@@ -107,6 +101,4 @@ describe "possible_bipartition" do
     answer = possible_bipartition(dislikes)
 
     # Assert
-    expect(answer).must_equal false
-  end
-end
+    assert not answer

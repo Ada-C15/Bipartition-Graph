@@ -23,10 +23,12 @@ def possible_bipartition(dislikes):
     group_a = []
     group_b = []
 
-    # helper function to determine whether all of the dog's dislikes are or aren't in a group
-    def dislike_helper(group, index):
-        for dislike in index:
-            if dislike in group:
+    # helper function to determine whether all of the dog's dislikes aren't in a group
+    def dislike_helper(group, dislikes):
+        for dog in dislikes:
+            # append each dog in the current dog's dislikes to the queue to be searched
+            dog_queue.append(dog)
+            if dog in group:
                 return False
         return True
 
@@ -38,18 +40,16 @@ def possible_bipartition(dislikes):
             # if the current dog being searched has no dislikes, append to list a (arbitrary)
             if dislikes[current_dog] == []:
                 group_a.append(current_dog)
-                # append the next dog in the graph to the queue so the loop won't exit due to an empty queue
-                dog_queue.append(current_dog + 1)
+                # append the next dog in the graph to the queue so the loop won't exit due to an empty queue (if it's not the last dog)
+                if current_dog < len(dislikes) - 1:
+                    dog_queue.append(current_dog + 1)
             else:
-                # append each dog in the current dog's dislikes to the queue to be searched
-                for dog in dislikes[current_dog]:
-                    dog_queue.append(dog)
                 if dislike_helper(group_a, dislikes[current_dog]):
                     group_a.append(current_dog)
                 elif dislike_helper(group_b, dislikes[current_dog]):
                     group_b.append(current_dog)
                 else:
-                    # if any of the dogs dislikes are in both lists and the dog cannot be placed without starting a fight
+                    # if any of the dog's dislikes are in both lists and the dog cannot be placed without starting a fight
                     return False
             # append the dog to the searched list
             searched.append(current_dog)

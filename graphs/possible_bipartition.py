@@ -1,4 +1,3 @@
-# Can be used for BFS
 from collections import deque 
 
 def possible_bipartition(dislikes):
@@ -8,6 +7,7 @@ def possible_bipartition(dislikes):
         Time Complexity: O(NE)
         Space Complexity: O(N)
     """
+    # BFS solution
     N = len(dislikes)
     colors = [None] * N
     q = deque()
@@ -25,7 +25,7 @@ def possible_bipartition(dislikes):
                     return False
                 elif colors[next] and colors[next] != colors[node]:
                     continue
-                elif not colors[next] and colors[node] is "red":
+                elif not colors[next] and colors[node] == "red":
                     temp = "green"
                 q.append((next, temp))
     return True

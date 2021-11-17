@@ -9,10 +9,13 @@ def test_example_1():
       [1],
       [2]
     ]
+    # {0, 2, 1 , 1, 2}
+    # {3, 4}
+    # TRUE
 
     # Act
     answer = possible_bipartition(dislikes)
-
+    print(f' FIRST TEST ANSWER {answer}')
     # Assert
     assert answer
 
@@ -32,7 +35,7 @@ def test_example_2():
 
 def test_example_r():
     # Arrange
-    dislikes = [ [],
+    dislikes = [[],
       [2, 5],
       [1, 3],
       [2, 4],
@@ -80,21 +83,20 @@ def test_will_return_false_for_graph_which_cannot_be_bipartitioned():
     # Assert
     assert not answer
 
-
 def test_will_return_true_for_empty_graph():
     assert possible_bipartition([])
   
 def test_will_return_false_for_another_graph_which_cannot_be_bipartitioned():
     # Arrange
-    dislikes = [ [3, 6],
-      [2, 5],
-      [1, 3],
-      [0, 2, 4],
-      [3, 5],
-      [1, 4],
-      [0],
-      [8],
-      [7]
+    dislikes = [[3, 6],  # [0]
+      [2, 5],             # [1]
+      [1, 3],             # [2]
+      [0, 2, 4],          # [3]
+      [3, 5],             # [4]
+      [1, 4],             # [5]
+      [0],                # [6]
+      [8],                # [7]
+      [7]                 # [8]
     ]
 
     # Act

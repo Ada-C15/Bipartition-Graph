@@ -6,8 +6,8 @@ def possible_bipartition(dislikes):
     """ Will return True or False if the given graph
         can be bi-partitioned without neighboring nodes put
         into the same partition.
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: O(nm)
+        Space Complexity: O(n)
     """
     if not dislikes:
         return True
@@ -54,7 +54,7 @@ def possible_bipartition(dislikes):
                 # process neighboors of dog / putting dislike dogs in opposite pen   
                 for neighbor in dislikes_graph[dog]:  
                     if neighbor not in red and neighbor not in green:
-                        if pen == "red": # opposite pen!
+                        if pen == "red":  # opposite pen!
                             dogs_queue.append((neighbor, "green"))
                         elif pen == "green":
                             dogs_queue.append((neighbor, "red"))

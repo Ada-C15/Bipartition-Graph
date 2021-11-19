@@ -5,12 +5,14 @@ def possible_bipartition(dislikes):
     """ Will return True or False if the given graph
         can be bipartitioned without neighboring nodes put
         into the same partition.
-        Time Complexity: ?
-        Space Complexity: ?
+        Time Complexity: O(n*m) n dogs m how disliked they are?
+        Space Complexity: O(n)
     """
     groups = [set(), set()]
 
     not_checked = {i for i in range(len(dislikes))}
+    
+    # this could be a queue
     to_check = []
 
     while not_checked:

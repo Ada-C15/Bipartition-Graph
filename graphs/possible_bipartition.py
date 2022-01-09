@@ -10,7 +10,7 @@ def possible_bipartition(dislikes):
         Space Complexity: O(N)
         where N - number of vertices/nodes, E - number of edges
     """
-    if len(dislikes) == 0:
+    if not dislikes:
         return True
 
     belongs_to_group = [False for i in range(len(dislikes))]
@@ -19,7 +19,7 @@ def possible_bipartition(dislikes):
     queue.append(1)
     belongs_to_group[1] = "group_a"
 
-    while len(queue) > 0:
+    while queue:
         current_dog = queue.popleft()
         for unwanted_dog in dislikes[current_dog]:
             if belongs_to_group[unwanted_dog] == belongs_to_group[current_dog]:

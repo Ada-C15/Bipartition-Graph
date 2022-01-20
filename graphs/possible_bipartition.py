@@ -35,8 +35,7 @@ queues --> first one in first one out enque-->deque
     green = set()
     
     for node in range(len(dislikes)):
-        if node not in green and node not in red:
-            que.appendleft(node)
+        que.appendleft(node)
         
         while que:
             current = que.pop()
@@ -49,7 +48,7 @@ queues --> first one in first one out enque-->deque
             
             for neighbor in dislikes[node]:
                 if neighbor not in red or green:
-                    que.appendleft(neighbor)
+                    que.append(neighbor)
                 if current not in red:
                     red.add(neighbor)
                     que.pop()

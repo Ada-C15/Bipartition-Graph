@@ -1,45 +1,36 @@
-from ast import And
-from collections import deque
-from concurrent.futures.process import BrokenProcessPool 
+#from ast import And
+#from collections import deque
+#from concurrent.futures.process import BrokenProcessPool 
+
+#look into using above libraries? 
 
 def possible_bipartition(dislikes):
     """ Will return True or False if the given graph
         can be bipartitioned without neighboring nodes put
         into the same partition.
-        Time Complexity: O("dogs"+:"dog relationships")
+        Time Complexity: O("dogs"+:"dog relationships(dogs-1?)")
         Space Complexity: O("dogs")
         BFS?
     """
-    if not dislikes:
-        return True
-    
-    bork = len(dislikes)
-    wolf_pack = [None] * bork
-    good_bois = set()
+    borkers = len(dislikes)
+    seen = [False for _ in range(borkers + 1)]
+    dfs = [1 for _ in range(borkers + 1)]
 
-    enqueue = deque()
-    enqueue.append(0)
-
-    while enqueue:
-        pupper = enqueue.popleft()
-        wolf_pack[pupper] = True
-
-        if not dislikes[pupper]:
-            enqueue.append(pupper+1)
-
-        for borker in dislikes[pupper]:
-
-            if not wolf_pack[borker]:
-                enqueue.append(borker)
-            
-            if pupper not in good_bois:
-                good_bois.add(borker)
-
-            elif pupper not in good_bois and borker == "bad dog" or borker in good_bois:
+    def _helper(borker, pupper):
+        seen[borker] = True
+        dfs[borker] = pupper
+        for color in dislikes[borker]:
+                if seen[color]:
+                    if (pupper - dfs[color] + 1) % 2 != 0:
+                        return False
+                elif not _helper(color, pupper + 1): 
                     return False
+        return True
 
-            else:
-                borker = "bad dog"
-            
+    for borker in range(1, borkers):
+        if not seen[borker]:
+            if not _helper(borker, 1): return False  
     return True
+
+    
 

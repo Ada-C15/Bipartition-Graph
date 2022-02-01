@@ -1,4 +1,11 @@
 def possible_bipartition(dislikes):
+    """ Will return True or False if the given graph
+        can be bipartitioned without neighboring nodes put
+        into the same partition.
+        Time Complexity: O(n)
+        Space Complexity: O(n)
+        DFS
+    """
     dogs = len(dislikes)
     if dogs == 0:
         return True
@@ -20,20 +27,4 @@ def search(graph, sets, vertex, set):
 
             return sets[vertex] == set
     
-'''
-    a graph is bipartite if its vertex set V can be partitioned into two sets, 
-    X and Y, such that each edge meets a vertex in both X and Y groups,
-    (edges in above problem are given as dislikes)
-    or, each edge contains exactly one vertex of X set and one vertex of Y set. 
-    i.e X can be colored blue and Y can be colored yellow, and no edge is monochromatic.
-    (can also test if it does not have a cycle of an odd length. 
-    measuring the cycles is difficult to solve in polynomial time)
-
-    Common algorithms to solve for 2-colorability in testing for bipartite (directed/undirected):
-    DFS: uses stack(last in, first out) <-solution below mirrors DFS
-    BFS: uses a queue(first in, first out)
-    similar time complexity for both:
-    time complexity: O(dislikes) O(edges)
-    space complexity: O(dogs*dislikes)... O(vertices*edges)? O(edges)?
-''' 
 
